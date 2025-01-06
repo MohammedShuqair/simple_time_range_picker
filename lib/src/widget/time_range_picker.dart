@@ -26,6 +26,7 @@ class TimeRangePicker {
     ValueChanged<TimeOfDay>? onEndTimeChange,
     required ValueChanged<TimeRangeValue> onSubmitted,
     VoidCallback? onCancel,
+    double? headerSpacing,
   }) {
     showDialog(
       context: context,
@@ -43,7 +44,9 @@ class TimeRangePicker {
             startTime: startTime,
             endTime: endTime,
             onSubmitted: onSubmitted,
-            onCancel: onCancel);
+            onCancel: onCancel,
+            headerSpacing: headerSpacing,
+        );
       },
     );
   }
@@ -63,6 +66,7 @@ class _TimeRangeDialog extends StatefulWidget {
   final TimeRangeViewType timeRangeViewType;
   final ValueChanged<TimeRangeValue>? onSubmitted;
   final VoidCallback? onCancel;
+  final double? headerSpacing ;
 
   _TimeRangeDialog(
       {required this.okLabel,
@@ -77,7 +81,7 @@ class _TimeRangeDialog extends StatefulWidget {
       this.onStartTimeChange,
       this.onEndTimeChange,
       this.onSubmitted,
-      this.onCancel});
+      this.onCancel, this.headerSpacing});
 
   @override
   State createState() {
@@ -226,6 +230,7 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog>
                     startTime: _startTime ?? _startDefaultTime,
                     endTime: _endTime ?? _endDefaultTime)),
             onCancel: widget.onCancel,
+            headerSpacing:widget.headerSpacing ,
           )
         ],
       ),

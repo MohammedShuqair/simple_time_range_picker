@@ -1664,6 +1664,7 @@ class TimeSinglePicker extends StatefulWidget {
     required this.onSubmitted,
     required this.onCancel,
     this.initialEntryMode = TimePickerEntryMode.dial,
+    this.headerSpacing,
   }) : super(key: key);
 
   /// The time initially selected when the dialog is shown.
@@ -1690,6 +1691,8 @@ class TimeSinglePicker extends StatefulWidget {
 
   /// cancel
   final VoidCallback? onCancel;
+
+  final double? headerSpacing;
 
   /// Optionally provide your own help text to the header of the time picker.
   // final String helpText;
@@ -1927,7 +1930,7 @@ class _TimeSinglePickerState extends State<TimeSinglePicker> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 header,
-                SizedBox(height: 16,),
+                SizedBox(height: widget.headerSpacing,),
                 Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
