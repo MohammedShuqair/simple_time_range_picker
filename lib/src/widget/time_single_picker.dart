@@ -1927,6 +1927,7 @@ class _TimeSinglePickerState extends State<TimeSinglePicker> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 header,
+                SizedBox(height: 16,),
                 Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
